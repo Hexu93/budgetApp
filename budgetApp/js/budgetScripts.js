@@ -29,7 +29,7 @@ class UI //Luokan kanssa on helpompi työskennellä
 
             //This lets the timeout timer to use 'this' argument from the constructor
             const self = this;
-            setTimeout(function()
+            setTimeout(() =>
             {
                 self.budgetFeedback.classList.remove('showItem');
             }, 4000);
@@ -78,7 +78,7 @@ class UI //Luokan kanssa on helpompi työskennellä
             this.expenseFeedback.classList.add('showItem');
             this.expenseFeedback.innerHTML = `<p>Values cannot be empty or negative</p>`;
             const self = this;
-            setTimeout(function(){
+            setTimeout(() => {
                 self.expenseFeedback.classList.remove('showItem');
             },4000);
         }
@@ -93,7 +93,6 @@ class UI //Luokan kanssa on helpompi työskennellä
                 id: this.itemID,
                 title: this.expenseValue,
                 amount,
-
             }
             this.itemID++;
             this.itemList.push(expense);
@@ -133,16 +132,12 @@ class UI //Luokan kanssa on helpompi työskennellä
     //Total expense
     totalExpense()
     {
-        let total = 0;
+        const total = 0;
 
         if(this.itemList.length > 0)
         {
-            total = this.itemList.reduce(function(acc,curr)
-            {
-                //Accumulator and current value
-                acc += curr.amount;
-                return acc;
-            },0)
+            const total = this.itemList.reduce((acc,expense) => acc += expense.amount, 0);
+            return total;
         }
         this.expenseAmount.textContent = total;
         return total;
@@ -156,7 +151,7 @@ class UI //Luokan kanssa on helpompi työskennellä
         //Remove from DOM
         this.expenseList.removeChild(parent);
 
-        let expense = this.itemList.filter(function(item)
+        let expense = this.itemList.filter((item) =>
         {
             return item.id === id;
         });
