@@ -159,7 +159,7 @@ class UI //Luokan kanssa on helpompi työskennellä
         this.expenseInput.value = expense[0].title;
         this.amountInput.value = expense[0].amount;
 
-        let templist = this.itemList.filter(function(item)
+        let templist = this.itemList.filter((item) =>
         {
             return item.id !== id;
         });
@@ -176,7 +176,7 @@ class UI //Luokan kanssa on helpompi työskennellä
         //Remove from DOM
         this.expenseList.removeChild(parent);
 
-        let templist = this.itemList.filter(function(item)
+        let templist = this.itemList.filter((item) =>
         {
             return item.id !== id;
         });
@@ -196,21 +196,21 @@ function eventListners()
     //Päivitetään UI
     const ui = new UI();
     
-    budgetForm.addEventListener('submit', function(event)
+    budgetForm.addEventListener('submit', (event) =>
     {
        event.preventDefault();
        ui.submitBudgetForm();
     });
     
     //submit list
-    expenseForm.addEventListener('submit', function(event)
+    expenseForm.addEventListener('submit', (event) =>
     {
         event.preventDefault()
         ui.submitExpenseForm();
     });
 
     //click list
-    expenseList.addEventListener('click', function(event)
+    expenseList.addEventListener('click', (event) =>
     {
         if(event.target.parentElement.classList.contains('edit-icon'))
         {
@@ -224,8 +224,8 @@ function eventListners()
 
 }
 
-document.addEventListener('DOMContentLoaded', function()
+document.addEventListener('DOMContentLoaded', () =>
 {
     eventListners();
-})
+});
   
