@@ -25,7 +25,7 @@ class UI //Luokan kanssa on helpompi työskennellä
         if(value === '' || value < 0)
         {
             this.budgetFeedback.classList.add('showItem');
-            this.budgetFeedback.innerHTML = `<p>Value cannot be empty or neggative </p>`;
+            this.budgetFeedback.innerHTML = `<p>Value cannot be empty or negative </p>`;
 
             //This lets the timeout timer to use 'this' argument from the constructor
             const self = this;
