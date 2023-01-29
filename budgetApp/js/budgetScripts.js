@@ -91,7 +91,7 @@ class UI //Luokan kanssa on helpompi työskennellä
 
             let expense = {
                 id: this.itemID,
-                title: this.expenseValue,
+                title: expenseValue,
                 amount,
             }
             this.itemID++;
@@ -108,8 +108,7 @@ class UI //Luokan kanssa on helpompi työskennellä
     {
         const div = document.createElement('div');
         div.classList.add('expense');
-        div.innerHTML = `
-        <div class="expense-item d-flex justify-content-between align-items-baseline">
+        div.innerHTML = `<div class="expense-item d-flex justify-content-between align-items-baseline">
 
         <h6 class="expense-title mb-0 text-uppercase list-item">${expense.title}</h6>
         <h5 class="expense-amount mb-0 list-item">${expense.amount}</h5>
