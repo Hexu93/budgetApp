@@ -135,10 +135,12 @@ class UI //Luokan kanssa on helpompi työskennellä
 
         if(this.itemList.length > 0)
         {
-            const total = this.itemList.reduce((acc,expense) => acc += expense.amount, 0);
+            const total = this.itemList.reduce((acc, expense) => acc += expense.amount, 0);
+            this.expenseAmount.textContent = total;
             return total;
         }
         this.expenseAmount.textContent = total;
+        
         return total;
     }
 
